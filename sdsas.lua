@@ -17,8 +17,6 @@ local function wl(key)
         rndStr = nil
         client_sign = nil
         decode_response = nil
-        RemoveKeyUI()
-        SaveKey()
         getgenv().ScriptExecute = true
 
         local LoadedUiHub 
