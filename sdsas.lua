@@ -127,7 +127,7 @@ local function wl(key)
             v2 = string.find(v2,"Marine") and "Marines" or "Pirates"
             for i, v in pairs(
                 getconnections(
-                    game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container[v2].Frame.TextButton.Activated
+                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"].ChooseTeam.Container[v2].Frame.TextButton.Activated
                 )
             ) do
                 v.Function()
@@ -137,7 +137,7 @@ local function wl(key)
             pcall(
                 function()
                     task.wait()
-                    if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main"):FindFirstChild("ChooseTeam") then 
+                    if  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("ChooseTeam") then 
                         Config["Team"] = Config["Team"] or "Pirates"
                         Join(Config["Team"])
                     end
@@ -641,7 +641,7 @@ local function wl(key)
                     return "Full Moon"
                 end 
             else
-                if game.Players.LocalPlayer.PlayerGui.Main.Dialogue.Visible then
+                if  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Dialogue.Visible then
                     game:GetService("VirtualUser"):Button1Down(Vector2.new(0, 0))
                     game:GetService("VirtualUser"):Button1Down(Vector2.new(0, 0))
                 end 
@@ -1707,7 +1707,7 @@ local function wl(key)
                         8.75343389e-08,
                         0.557085216
                     )
-                    if game.Players.LocalPlayer.PlayerGui.Main.Timer.Visible then
+                    if  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Timer.Visible then
                         if GetDistance(TempleCFrame) <= 380 then
                             for i, v in pairs(game.Players:GetChildren()) do
                                 if
@@ -2063,7 +2063,7 @@ local function wl(key)
             function()
                 while wait() do
                     if ChoDienCanNguoi then
-                        if game.Players.LocalPlayer.PlayerGui.Main.PvpDisabled.Visible then
+                        if game.Players.LocalPlayer.PlayerGui..PvpDisabled.Visible then
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
                             wait(5)
                         end
@@ -2139,7 +2139,7 @@ local function wl(key)
                                                 (TpCFrame.Position -
                                                     game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <
                                                     150 and
-                                                not game.Players.LocalPlayer.PlayerGui.Main.PvpDisabled.Visible
+                                                not  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].PvpDisabled.Visible
                                          then
                                             LegitAttack = true
                                             autospamskill = true
@@ -4049,11 +4049,11 @@ local function wl(key)
         end
         function CheckIsRaiding()
             checkraid2 = getNextIsland()
-            checkraid1 = game.Players.LocalPlayer.PlayerGui.Main.Timer.Visible == true
+            checkraid1 =  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Timer.Visible == true
             if getNextIsland() then
                 return getNextIsland()
             end     
-            if not ALLCHECK_Func["Auto Trial Stage 1"]() and game.Players.LocalPlayer.PlayerGui.Main.Timer.Visible and not GetSeaBeastTrial() and GetDistance(CFrame.new(28282.5703125, 14896.8505859375, 105.1042709350586)) > 3000 then
+            if not ALLCHECK_Func["Auto Trial Stage 1"]() and  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Timer.Visible and not GetSeaBeastTrial() and GetDistance(CFrame.new(28282.5703125, 14896.8505859375, 105.1042709350586)) > 3000 then
                 return true
             end
         end
@@ -5587,7 +5587,7 @@ local function wl(key)
             return aa
         end
         function GetQuest()
-            if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible then
+            if  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible then
                 return
             end 
             UpdateTPCFrame()
@@ -5607,7 +5607,7 @@ local function wl(key)
             end
         end
         function GetQuestCustom(lvlcustom)
-            if game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible then
+            if  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible then
                 return
             end
             if not QuestPoint[tostring(CheckDoubleQuestCustom(lvlcustom).NameQuest)] then
@@ -5698,7 +5698,7 @@ local function wl(key)
                 pcall(
                 function()
                     if LocalPlayerLevelValue < 2450 then
-                        if string.find(game.Players.LocalPlayer.PlayerGui.Main.Level.Exp.Text, "ends in") then
+                        if string.find( game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Level.Exp.Text, "ends in") then
                             return true
                         end
                     end
@@ -5979,7 +5979,7 @@ local function wl(key)
                         end
                     end
                     if Config["Auto Raid"] and not Sea1 then
-                        if CheckIsRaiding() or game.Players.LocalPlayer.PlayerGui.Main.Timer.Visible == true or getNextIsland() then 
+                        if CheckIsRaiding() or  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Timer.Visible == true or getNextIsland() then 
                             repeat
                                 wait()
                                 MMBStatus = "Doing Raid"
@@ -6027,7 +6027,7 @@ local function wl(key)
                                 repeat
                                     task.wait()
                                 until tick() - raidtick >= 60 or not Config["Auto Raid"] or
-                                    (CheckIsRaiding() or game.Players.LocalPlayer.PlayerGui.Main.Timer.Visible == true or
+                                    (CheckIsRaiding() or  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Timer.Visible == true or
                                         getNextIsland())
                             elseif not BoughtChip then
                                 pcall(
@@ -6478,7 +6478,7 @@ local function wl(key)
                         DoNotTweenInThisTime = true
                         task.wait(0.1)
                     until not game.Players.LocalPlayer or not Config["Auto Raid"] or
-                        game.Players.LocalPlayer.PlayerGui.Main.Timer.Visible 
+                         game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Timer.Visible 
                     DoNotTweenInThisTime = false
                 elseif CheckIsRaiding() then 
                     repeat  
@@ -6530,7 +6530,7 @@ local function wl(key)
                                 if CheckElite() then 
                                     if
                                     not string.find(
-                                        game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,
+                                         game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Container.QuestTitle.Title.Text,
                                         CheckElite().Name:gsub(" %pLv. %d+%p", "")
                                     ) or
                                         not game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible
@@ -6645,7 +6645,7 @@ local function wl(key)
                         repeat
                             if
                                 not string.find(
-                                    game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,
+                                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Container.QuestTitle.Title.Text,
                                     CheckMob(Elites, true).Name:gsub(" %pLv. %d+%p", "")
                                 ) or
                                     not game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible
@@ -6752,7 +6752,7 @@ local function wl(key)
                         )
                     until not Config["Kill Trial Players"] or
                             (not GetPlayerKillTrial() or v.Name ~= GetPlayerKillTrial().Name) or
-                            not game.Players.LocalPlayer.PlayerGui.Main.Timer.Visible or
+                            not  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Timer.Visible or
                             not v or
                             not v.Parent or
                             not v:FindFirstChild("Humanoid") or
@@ -7039,14 +7039,14 @@ local function wl(key)
                         if statusupgraderace == "Bartilo 0" then
                             if
                                 string.find(
-                                    game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,
+                                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Container.QuestTitle.Title.Text,
                                     "Swan Pirates"
                                 ) and
                                     string.find(
-                                        game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,
+                                         game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Container.QuestTitle.Title.Text,
                                         "50"
                                     ) and
-                                    game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true
+                                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Visible == true
                              then
                                 if IsSwanPirate() then
                                     for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -7060,7 +7060,7 @@ local function wl(key)
                                                     repeat
                                                         KillMob(v)
                                                     until not v.Parent or v.Humanoid.Health <= 0 or
-                                                        game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                                         game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Visible == false
                                                     UseFastAttack = false
                                                 end
                                             )
@@ -7568,11 +7568,11 @@ local function wl(key)
                                             conchomeci = GetInfoBossQuest(i)
                                             if
                                                 (not string.find(
-                                                    game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,
+                                                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Container.QuestTitle.Title.Text,
                                                     i
                                                 ) and
-                                                    game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible) or
-                                                    not game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible
+                                                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Visible) or
+                                                    not  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].Quest.Visible
                                              then
                                                 MMBStatus = "Claiming defeat "..tostring(i).." quest"
                                                 if
@@ -7696,7 +7696,7 @@ local function wl(key)
                                             MMBStatus = "Killing " .. tostring(v.Name)
                                             repeat
                                                 wait()
-                                                if game.Players.LocalPlayer.PlayerGui.Main.PvpDisabled.Visible then
+                                                if  game.Players.LocalPlayer.PlayerGui["Main (minimal)"].PvpDisabled.Visible then
                                                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(
                                                         "EnablePvp"
                                                     )
@@ -7843,7 +7843,7 @@ local function wl(key)
                                         end
                                     end
                                 end
-                            elseif game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible then
+                            elseif  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible then
                                 if not MobLevel1OrMobLevel2() then
                                     MMBStatus = "Waitting " .. tostring(CheckNameDoubleQuest()) .. " to farm"
                                     Check155 = tick()
@@ -7861,11 +7861,11 @@ local function wl(key)
                                                 function()
                                                     if not MobLevel1OrMobLevel2() and Config["Farm Normal"] then
                                                         if
-                                                            not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible
+                                                            not  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible
                                                          then
                                                             repeat
                                                                 wait()
-                                                            until game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild(
+                                                            until  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild(
                                                                 "Quest"
                                                             ).Visible
                                                         end
@@ -7881,7 +7881,7 @@ local function wl(key)
                                             v.Name == MobLevel1OrMobLevel2() and v:FindFirstChild("HumanoidRootPart") and
                                                 v:FindFirstChild("Humanoid") and
                                                 v.Humanoid.Health > 0 and
-                                                game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible
+                                                 game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible
                                          then
                                             repeat
                                                 KillMob(v)
@@ -7889,7 +7889,7 @@ local function wl(key)
                                                 not v:FindFirstChild("Humanoid") or
                                                 not v:FindFirstChild("HumanoidRootPart") or
                                                 v.Humanoid.Health <= 0 or
-                                                not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible
+                                                not  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible
                                             StartBringMob = false
                                             UseFastAttack = false
                                             UseFastAttack = false
@@ -7910,7 +7910,7 @@ local function wl(key)
                     elseif Config["Farm Type"]["Cake Prince"] and Sea3 then
                         if
                             LocalPlayerLevelValue >= 2200 and Config["Claim Bone & Cake Prince Quest"] and
-                                not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible
+                                not  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible
                          then
                             levelcustom = 2200
                             if LocalPlayerLevelValue >= 2275 then
@@ -7920,7 +7920,7 @@ local function wl(key)
                         elseif
                             not Config["Claim Bone & Cake Prince Quest"] or
                                 ((Config["Claim Bone & Cake Prince Quest"] and LocalPlayerLevelValue < 2200) or
-                                    game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible)
+                                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible)
                          then
                             if getCakePrince() then
                                 Target = getCakePrince()
@@ -7988,7 +7988,7 @@ local function wl(key)
                     elseif Config["Farm Type"]["Bone"] and Sea3 then
                         if
                             LocalPlayerLevelValue >= 1975 and Config["Claim Bone & Cake Prince Quest"] and
-                                not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible
+                                not  game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible
                          then
                             levelcustom = 1975
                             if LocalPlayerLevelValue >= 2050 then
@@ -7998,7 +7998,7 @@ local function wl(key)
                         elseif
                             not Config["Claim Bone & Cake Prince Quest"] or
                                 ((Config["Claim Bone & Cake Prince Quest"] and LocalPlayerLevelValue < 2200) or
-                                    game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("Quest").Visible)
+                                     game.Players.LocalPlayer.PlayerGui["Main (minimal)"]:FindFirstChild("Quest").Visible)
                          then
                             BoneMobs = {
                                 "Reborn Skeleton [Lv. 1975]",
