@@ -8944,12 +8944,7 @@ local function wl(key)
 end
 
 spawn(function()
-    local KEY = ReadKey()
-    if KEY and #KEY >= 2 then
-        object.Desc.Text = 'Succesfully loaded key!'
-        Notify.New("Succesfully loaded key!", 5)
-        wl(KEY)
-    end
+     wl('Please input your key')
 end)
 
 object.CheckKey.MouseButton1Click:Connect(function()
