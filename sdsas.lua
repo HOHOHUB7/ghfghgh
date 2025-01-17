@@ -17,15 +17,10 @@ local function wl(key)
         rndStr = nil
         client_sign = nil
         decode_response = nil
-        getgenv().ScriptExecute = true
 
         local LoadedUiHub 
         UserSettings():GetService("UserGameSettings").MasterVolume = 0
-        spawn(
-            function()
-                getgenv().YMFLOADED = true
-            end
-        ) 
+
         if islclosure(loadstring) then
             while true do
             end 
